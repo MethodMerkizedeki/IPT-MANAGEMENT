@@ -1,0 +1,53 @@
+<!-- /.modal-dialog -->
+                <div class="modal fade" id="edit{{$pt->id}}" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Edit IPT</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('ipt.update', $pt->id)}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for=""> Description</label>
+                                                <input type="hidden" name="id" value="{{$pt->id}}">
+                                                <input type="text" class="form-control" name="description"
+                                                    value="{{$pt->description}}" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Region</label>
+                                                <input type="text" class="form-control" name="region"
+                                                    value="{{$pt->region}}" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Quantity</label>
+                                                <input type="number" class="form-control" name="quantity"
+                                                    value="{{$pt->quantity}}" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="hidden" class="form-control" name="status" value="Pending"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                    <div class="modal-footer justify-content-between">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>
+                                            Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                </div>
